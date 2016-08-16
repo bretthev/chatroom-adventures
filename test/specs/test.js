@@ -6,8 +6,27 @@ describe('welcome page', function(){
   	var title = browser.getTitle()
   	assert.equal(title, 'Chat Adventures');
     });
-  // it('should be able to grab the h1 from the page', function(){
-  //   browser.url('/');
-  //   var h1 = browser.getElement()
-  // })
+  it('send button should be disabled if input field is empty', function() {
+    browser.url('/');
+    var messageInput =browser.element('#message-input');
+    messageInput.setValue('');
+    var buttonStatus = browser.getAttribute('#send-button', 'disabled');
+    assert.equal(buttonStatus, 'true')
+  })
+  it('send button should be enabled if input field has a value', function() {
+    browser.url('/');
+    var messageInput =browser.element('#message-input');
+    messageInput.setValue('test');
+    var buttonStatus = browser.getAttribute('#send-button', 'disabled');
+    assert.equal(buttonStatus, null);
+  });
 });
+
+
+//the button should only be enabled if the input field has a value
+
+//message input should be cleared on send click
+
+//messages should show up in message container
+
+//user-generated messages look different (different classes from non-users)
