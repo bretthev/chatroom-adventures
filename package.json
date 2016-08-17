@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dev-server --hot --inline",
     "build": "webpack",
-    "test": "wdio wdio.conf.js"
+    "test": "mocha",
+    "feature": "wdio wdio.conf.js",
+    "sel": "java -jar selenium-server-standalone-2.53.1.jar"
   },
   "author": "",
   "license": "ISC",
