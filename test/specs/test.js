@@ -20,6 +20,17 @@ describe('welcome page', function(){
     var buttonStatus = browser.getAttribute('#send-button', 'disabled');
     assert.equal(buttonStatus, null);
   });
+  it('should clear input field on submit button click', function() {
+    browser.url('/');
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test');
+    browser.click('#send-button');
+    assert.equal(messageInput.getAttribute('value'), '');
+  });
+  // it('should put user messages in the DOM', function() {
+  //   browser.url('/');
+  //   var
+  // })
 });
 
 

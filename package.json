@@ -1,14 +1,11 @@
 {
   "name": "chat-stuff",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "node server.js",
     "build": "webpack",
-    "test": "mocha",
-   "test": "wdio wdio.conf.js",
-   "start": "node server.js"
+    "test": "wdio wdio.conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,5 +25,18 @@
     "webdriverio": "^4.2.5",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bretthev/chatroom-adventures.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bretthev/chatroom-adventures/issues"
+  },
+  "homepage": "https://github.com/bretthev/chatroom-adventures#readme",
+  "description": ""
 }
