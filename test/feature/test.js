@@ -41,16 +41,24 @@ describe('chat messages', function(){
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
     browser.click('#send-button');
-    var message = browser.getText('.message');
+    var message = browser.getText('.message-text');
     console.log(message);
     assert.equal(message, 'test');
   });
 
-  it('')
+  it('users should be able to delete their own messages', function() {
+    browser.url('/');
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test');
+    browser.click('#send-button');
+    var deleteButton = browser.element('.delete-button');
+    browser.click('.delete-button');
+    var messageArticle = browser.isExisting('.message');
+    assert.equal(messageArticle, false);
+  })
 
 });
 
-//Users should be able to delete their own messages.
 //Users should not be able to delete messages from other users.
 //Users should be able to edit their own messages.
 //Users should not be able to edit other people’s messages.
