@@ -53,13 +53,12 @@ describe('chat messages', function(){
     browser.click('#send-button');
     var deleteButton = browser.element('.delete-button');
     browser.click('.delete-button');
-    var messageArticle = browser.element('.message');
-    assert.equal(messageArticle, null);
+    var messageArticle = browser.isExisting('.message');
+    assert.equal(messageArticle, false);
   })
 
 });
 
-//Users should be able to delete their own messages.
 //Users should not be able to delete messages from other users.
 //Users should be able to edit their own messages.
 //Users should not be able to edit other people’s messages.
