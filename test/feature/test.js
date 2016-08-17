@@ -17,10 +17,10 @@ describe('welcome page', function(){
 
   it('send button should be enabled if input field has a value', function() {
     browser.url('/');
-    var messageInput =browser.element('#message-input');
+    var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
-    var buttonStatus = browser.getAttribute('#send-button', 'disabled');
-    assert.equal(buttonStatus, null);
+    var buttonStatus = browser.isEnabled('#send-button');
+    assert.equal(buttonStatus, true);
   });
 
   it('should clear input field on submit button click', function() {
@@ -30,26 +30,29 @@ describe('welcome page', function(){
     browser.click('#send-button');
     var buttonStatus = browser.element('#send-button').value.ELEMENT
     var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value
-
     console.log(buttonStatus)
     assert.equal(messageInput.getAttribute('value'), '');
   });
+});
 
+describe('chat messages', function(){
   it('should put user messages in the DOM', function() {
     browser.url('/');
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
     browser.click('#send-button');
-    var message = browser.element('.message');
-    assert.isTrue(browser.isExisting(message));
+    var message = browser.getText('.message');
+    console.log(message);
+    assert.equal(message, 'test');
   });
+
+  it('')
+
 });
 
-
-//the button should only be enabled if the input field has a value
-
-//message input should be cleared on send click
-
-//messages should show up in message container
-
-//user-generated messages look different (different classes from non-users)
+//Users should be able to delete their own messages.
+//Users should not be able to delete messages from other users.
+//Users should be able to edit their own messages.
+//Users should not be able to edit other people’s messages.
+//The message input field should show a live count of the number of characters.
+//Messages should persist in local storage. They should be loaded when the application loads.
