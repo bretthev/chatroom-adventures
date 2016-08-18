@@ -1,5 +1,67 @@
-$primary-text-color: #F00;
+html {
+  align-content: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
 
-body {
-  color: $primary-text-color
+main {
+  width: 416px;
+  height: 736px;
+  margin: auto;
+  background-color: #4A4A4A;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  color: #B8E986;
+  text-align: center;
+  padding-top: 40px;
+}
+
+// MESSAGE CONTAINER
+#messages-container {
+  height: 550px;
+}
+
+.message {
+  height: 40px;
+  width: 90%;
+  margin: auto;
+}
+
+.user-message {
+  border-bottom: 3px solid #BD10E0;
+}
+
+.bot-message {
+  border-bottom: 3px solid #50E3C2;
+}
+
+
+// INPUT CONTAINER
+#input-container {
+  background-color: #C9C9CE;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#message-input {
+  border-radius: 10px;
+  height: 50px;
+  width: 80%;
+}
+
+#send-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+  color: blue;
+}
+
+#character-count {
+  color: red;
+  margin: auto;
+  text-align: center;
 }
