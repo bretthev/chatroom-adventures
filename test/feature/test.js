@@ -28,8 +28,8 @@ describe('welcome page', function(){
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
     browser.click('#send-button');
-    var buttonStatus = browser.element('#send-button').value.ELEMENT
-    var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value
+    var buttonStatus = browser.element('#send-button').value.ELEMENT;
+    var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value;
     assert.equal(messageInput.getAttribute('value'), '');
   });
 });
@@ -81,9 +81,9 @@ describe('chat messages', function(){
     browser.click('#send-button');
     messageInput.setValue('test2');
     browser.click('#send-button');
-    var messages = browser.getAttribute('article','id');
+    var messages = browser.getAttribute('.user-message','id');
     console.log(messages);
-    assert.notEqual(messages[0], messages[2]);
+    assert.notEqual(messages[0], messages[1]);
   });
 });
 
