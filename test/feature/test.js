@@ -30,7 +30,6 @@ describe('welcome page', function(){
     browser.click('#send-button');
     var buttonStatus = browser.element('#send-button').value.ELEMENT
     var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value
-    console.log(buttonStatus)
     assert.equal(messageInput.getAttribute('value'), '');
   });
 });
@@ -41,8 +40,7 @@ describe('chat messages', function(){
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
     browser.click('#send-button');
-    var message = browser.getText('.message-text');
-    console.log(message);
+    var message = browser.getText('.user-message-text');
     assert.equal(message, 'test');
   });
 
@@ -53,14 +51,29 @@ describe('chat messages', function(){
     browser.click('#send-button');
     var deleteButton = browser.element('.delete-button');
     browser.click('.delete-button');
-    var messageArticle = browser.isExisting('.message');
+    var messageArticle = browser.isExisting('.user-message');
     assert.equal(messageArticle, false);
+  })
+
+  it('user messages ', function() {
+    browser.url('/');
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test');
+    browser.click('#send-button');
+    var editableStatus = browser.getAttribute('.user-message-text', 'contenteditable');
+    console.log(editableStatus);
+    assert.equal(editableStatus, 'true');
+  })
+
+  it('message input should show a live character count', function() {
+    browser.url('/');
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test');
+    var characterCount = browser.getText('#character-count');
+    assert.equal(characterCount, '4');
   })
 
 });
 
-//Users should not be able to delete messages from other users.
-//Users should be able to edit their own messages.
-//Users should not be able to edit other people’s messages.
 //The message input field should show a live count of the number of characters.
 //Messages should persist in local storage. They should be loaded when the application loads.
