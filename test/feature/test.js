@@ -1,4 +1,13 @@
 const assert =  require('assert');
+// var webdriver = require('webdriverio');
+var webdriver = require('webdriverio'),
+    By = webdriver.By,
+    until = webdriver.until;
+
+// var driver = new webdriver.Builder()
+//     .forBrowser('firefox')
+//     .build();
+
 
 describe('welcome page', function(){
   it('should be able to grab the page title', function(){
@@ -71,23 +80,23 @@ describe('chat messages', function(){
     messageInput.setValue('test');
     var characterCount = browser.getText('#character-count');
     assert.equal(characterCount, '4');
-  })
+  });
 
-  // it('messages should have unique id', function() {
-  //   browser.url('/');
-  //
-  //   var messageInput = browser.element('#message-input');
-  //   messageInput.setValue('test1');
-  //   browser.click('#send-button');
-  //   // var message1 = browser.element('article');
-  //   // var message1Id = browser.getAttribute('id');
-  //
-  //   messageInput.setValue('test2');
-  //   browser.click('#send-button');
-  //
-  //
-  //   assert.notEqual(message1Id, message2Id);
-  // })
+  it('messages should have unique id', function() {
+    browser.url('/');
+
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test1');
+    browser.click('#send-button');
+    messageInput.setValue('test2');
+    browser.click('#send-button');
+    var messages = browser.getAttribute('article','id');
+    // var messages = browser.element('.message');
+    // var messages = browser.element(By.className('message'));
+    // var messages = webdriver.findElements(By.className('message'))
+    console.log(messages);
+    assert.notEqual(messages[0], messages[2]);
+  });
 });
 
 //Messages should persist in local storage. They should be loaded when the application loads.
