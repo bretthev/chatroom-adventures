@@ -1,7 +1,5 @@
-const assert = require('chai').assert
+require('chai').assert;
 
-describe('our test bundle', function () {
-  it('should work', function () {
-    assert(true)
-    })
-  })
+require('./message-tests');
+
+require('./chatroom-tests');

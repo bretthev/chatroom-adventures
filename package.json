@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "build": "webpack",
-    "test": "mocha",
+    "unit": "mocha ./test/unit-tests/index.js",
     "feature": "wdio wdio.conf.js",
     "sel": "java -jar selenium-server-standalone-2.53.1.jar"
   },
