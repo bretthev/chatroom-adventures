@@ -15,16 +15,16 @@ describe('Chatroom', function() {
 
   it('should contain an array of existing messages if given values', function() {
     var chatroom = new Chatroom({});
-    var message = new Message({id: "Madison's Message", user: 'Madison', content: 'This is a good idea'});
+    var message = new Message({id: 'id', user: 'user', content: 'test'});
     chatroom.updateMessagesProperty(message);
     assert.equal(chatroom.messages.length, 1);
   })
 
   it('messages should keep their id, user, and content values', function() {
     var chatroom = new Chatroom({});
-    var message = new Message({id: "Madison's Message", user: 'Madison', content: 'This is a good idea'});
+    var message = new Message({id: 'id', user: 'user', content: 'test'});
     chatroom.updateMessagesProperty(message);
-    assert.equal(chatroom.messages[0].user, 'Madison');
+    assert.equal(chatroom.messages[0].user, 'user');
   })
 
   it('should be able to order messages by id', function() {
@@ -37,5 +37,23 @@ describe('Chatroom', function() {
     chatroom.updateMessagesProperty(message3);
     chatroom.orderMessages();
     assert.deepEqual(chatroom.messages, [message3, message2, message1 ]);
+  })
+
+  it('should be able to put messages in local storage', function() {
+    var chatroom = new Chatroom({});
+    var message = new Message({ id: 1 });
+    chatroom.updateMessagesProperty(message);
+    chatroom.sendMessagesToStorage();
+    var storedMessages = JSON.parse(localStorage.getItem('messages'));
+    assert.equal(chatroom.messages[0].id, storedMessages[0].id);
+  })
+
+  it('should be able to get messages from local storage', function() {
+    var chatroom = new Chatroom({});
+    var message = new Message({ id: 1, user: 'user', content: 'test'});
+    chatroom.updateMessagesProperty(message);
+    chatroom.sendMessagesToStorage();
+    var storedMessages = chatroom.getMessagesFromStorage();
+    assert.deepEqual(chatroom.messages[0], storedMessages[0]);
   })
 })

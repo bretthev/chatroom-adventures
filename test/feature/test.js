@@ -55,7 +55,7 @@ describe('chat messages', function(){
     assert.equal(messageArticle, false);
   })
 
-  it('user messages ', function() {
+  it('user messages can be edited', function() {
     browser.url('/');
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
@@ -73,7 +73,21 @@ describe('chat messages', function(){
     assert.equal(characterCount, '4');
   })
 
+  // it('messages should have unique id', function() {
+  //   browser.url('/');
+  //
+  //   var messageInput = browser.element('#message-input');
+  //   messageInput.setValue('test1');
+  //   browser.click('#send-button');
+  //   // var message1 = browser.element('article');
+  //   // var message1Id = browser.getAttribute('id');
+  //
+  //   messageInput.setValue('test2');
+  //   browser.click('#send-button');
+  //
+  //
+  //   assert.notEqual(message1Id, message2Id);
+  // })
 });
 
-//The message input field should show a live count of the number of characters.
 //Messages should persist in local storage. They should be loaded when the application loads.
