@@ -1,13 +1,4 @@
 const assert =  require('assert');
-// var webdriver = require('webdriverio');
-var webdriver = require('webdriverio'),
-    By = webdriver.By,
-    until = webdriver.until;
-
-// var driver = new webdriver.Builder()
-//     .forBrowser('firefox')
-//     .build();
-
 
 describe('welcome page', function(){
   it('should be able to grab the page title', function(){
@@ -91,9 +82,6 @@ describe('chat messages', function(){
     messageInput.setValue('test2');
     browser.click('#send-button');
     var messages = browser.getAttribute('article','id');
-    // var messages = browser.element('.message');
-    // var messages = browser.element(By.className('message'));
-    // var messages = webdriver.findElements(By.className('message'))
     console.log(messages);
     assert.notEqual(messages[0], messages[2]);
   });
