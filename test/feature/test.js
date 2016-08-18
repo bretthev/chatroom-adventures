@@ -28,8 +28,8 @@ describe('welcome page', function(){
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
     browser.click('#send-button');
-    var buttonStatus = browser.element('#send-button').value.ELEMENT
-    var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value
+    var buttonStatus = browser.element('#send-button').value.ELEMENT;
+    var buttonTrueStatus = browser.elementIdEnabled(buttonStatus).value;
     assert.equal(messageInput.getAttribute('value'), '');
   });
 });
@@ -55,7 +55,7 @@ describe('chat messages', function(){
     assert.equal(messageArticle, false);
   })
 
-  it('user messages ', function() {
+  it('user messages can be edited', function() {
     browser.url('/');
     var messageInput = browser.element('#message-input');
     messageInput.setValue('test');
@@ -71,9 +71,20 @@ describe('chat messages', function(){
     messageInput.setValue('test');
     var characterCount = browser.getText('#character-count');
     assert.equal(characterCount, '4');
-  })
+  });
 
+  it('messages should have unique id', function() {
+    browser.url('/');
+
+    var messageInput = browser.element('#message-input');
+    messageInput.setValue('test1');
+    browser.click('#send-button');
+    messageInput.setValue('test2');
+    browser.click('#send-button');
+    var messages = browser.getAttribute('.user-message','id');
+    console.log(messages);
+    assert.notEqual(messages[0], messages[1]);
+  });
 });
 
-//The message input field should show a live count of the number of characters.
 //Messages should persist in local storage. They should be loaded when the application loads.
