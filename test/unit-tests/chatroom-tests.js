@@ -54,7 +54,7 @@ describe('Chatroom', function() {
     chatroom.updateMessagesProperty(message);
     chatroom.sendMessagesToStorage();
     var storedMessages = chatroom.getMessagesFromStorage();
-    assert.deepEqual(chatroom.messages[0], storedMessages[0]);
+    assert.equal(chatroom.messages[0].id, storedMessages[0].id);
   });
 
 
