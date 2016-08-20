@@ -65,9 +65,9 @@ describe('Chatroom', function() {
       var message2 = new Message({ id: 2 });
       chatroom.updateMessagesProperty(message2);
       chatroom.sendMessagesToStorage();
-      chatroom.deleteMessageFromStorage(message);
+      chatroom.deleteMessageFromStorage(message.id);
       chatroom.getMessagesFromStorage();
       assert.equal(chatroom.messages[0].id, message2.id);
   });
-  
+
 })
