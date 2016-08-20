@@ -57,6 +57,19 @@ describe('Chatroom', function() {
     assert.equal(chatroom.messages[0].id, storedMessages[0].id);
   });
 
+  it('should be able to get messages from local storage in order', function() {
+    var chatroom = new Chatroom({});
+    var message1 = new Message({ id: 1});
+    chatroom.updateMessagesProperty(message1);
+    var message2 = new Message({ id: 3});
+    chatroom.updateMessagesProperty(message2);
+    var message3 = new Message({ id: 2});
+    chatroom.updateMessagesProperty(message3);
+    chatroom.sendMessagesToStorage();
+    chatroom.getMessagesFromStorage();
+    assert.equal(chatroom.messages[1].id, message3.id)
+  })
+
 
   it('delete button should remove message object from local storage upon click', function(){
       var chatroom = new Chatroom({});
@@ -69,5 +82,23 @@ describe('Chatroom', function() {
       chatroom.getMessagesFromStorage();
       assert.equal(chatroom.messages[0].id, message2.id);
   });
+
+  it('should be able to find the next n messages after a message with a given id', function() {
+    var chatroom = new Chatroom({});
+    var message1 = new Message({ id: 1});
+    chatroom.updateMessagesProperty(message1);
+    var message2 = new Message({ id: 2});
+    chatroom.updateMessagesProperty(message2);
+    var message3 = new Message({ id: 3});
+    chatroom.updateMessagesProperty(message3);
+    var message4 = new Message({ id: 4});
+    chatroom.updateMessagesProperty(message4);
+    var message5 = new Message({ id: 5});
+    chatroom.updateMessagesProperty(message5);
+    var message6 = new Message({ id: 6});
+    chatroom.updateMessagesProperty(message6);
+    var nextMessages = chatroom.findNextMessages(3, 3);
+    assert.deepEqual(nextMessages, [message4, message5, message6])
+  })
 
 });
