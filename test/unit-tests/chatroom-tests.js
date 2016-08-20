@@ -56,4 +56,18 @@ describe('Chatroom', function() {
     var storedMessages = chatroom.getMessagesFromStorage();
     assert.deepEqual(chatroom.messages[0], storedMessages[0]);
   })
+
+
+  it('delete button should remove message object from local storage upon click', function(){
+      var chatroom = new Chatroom({});
+      var message = new Message({ id: 1 });
+      chatroom.updateMessagesProperty(message);
+      var message2 = new Message({ id: 2 });
+      chatroom.updateMessagesProperty(message2);
+      chatroom.sendMessagesToStorage();
+      chatroom.deleteMessageFromStorage(message.id);
+      chatroom.getMessagesFromStorage();
+      assert.equal(chatroom.messages[0].id, message2.id);
+  });
+
 })
