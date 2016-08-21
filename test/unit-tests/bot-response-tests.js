@@ -7,19 +7,24 @@ const BotResponse = require('../../lib/bot-response')
 describe('BotResponse', function() {
   context('general responses', function() {
 
+    var aggressiveStatementResponses = ["Don't raise your voice at me.", "Calm down.", "Inside voices, please.", "You seem excited and I don't really like that.", "You seem to have some pretty strong feelings about things.", "You're being kind of aggressive and it's making me uncomfortable. I think you should go."];
+
+    var questionResponses = ['I obviously do not know the answer. I am like three lines of JavaScript written by a beginner programmer.', 'You know who might know the answer to that question? A real person. You should find one and ask them and leave me alone.', "I don't use literally often, but I literally have no idea. Because I'm a JavaScript program.", "You know who might know the answer to that? Brett. He's very smart. And handsome."]
+
+    var swearResponses = ['Watch your language, please.', 'Swearing at a basic Javascript program is definitely a good use of your time.', "No one is impressed by swearing. It's ugly and you're better than that.", 'Very mature.', 'You would not believe how much time Brett wasted thinking up responses to swear words.']
+
+
   it('should be a function', function() {
     assert.isFunction(BotResponse)
   })
 
   it('should be able to recognize swear words and respond appropriately', function() {
-      var swearResponses = ['Watch your language, please.', 'Swearing at a basic Javascript program is definitely a good use of your time.', "No one is impressed by swearing. It's ugly and you're better than that.", 'Very mature.', 'You would not believe how much time Brett wasted thinking up responses to swear words.']
     var botResponse = new BotResponse('shit');
     botResponse.checkForSwearWords();
     assert.include(swearResponses, botResponse.botMessageContent)
   })
 
   it('should not update botResponse if user message doesnt swear', function() {
-    debugger;
     var botResponse = new BotResponse('test');
     botResponse.checkForSwearWords();
     assert.equal(botResponse.botMessageContent, 'I am a robot.')
@@ -27,23 +32,27 @@ describe('BotResponse', function() {
 
   it('should be able to recognize questions and respond appropriately', function() {
     var botResponse = new BotResponse('Why you no like me?');
-      var questionResponses = ['I obviously do not know the answer. I am like three lines of JavaScript written by a beginner programmer.', 'You know who might know the answer to that question? A real person. You should find one and ask them and leave me alone.', "I don't use literally often, but I literally have no idea. Because I'm a JavaScript program.", "You know who might know the answer to that? Brett. He's very smart. And handsome."]
     botResponse.checkForQuestion();
     assert.include(questionResponses, botResponse.botMessageContent)
   })
 
   it('should be able to recognize exclamation points and caps lock and respond appropriately', function() {
     var botResponse = new BotResponse('I hate you!');
-    var aggressiveStatementResponses = ["Don't raise your voice at me.", "Calm down.", "Inside voices, please.", "You seem excited and I don't really like that.", "You seem to have some pretty strong feelings about things.", "You're being kind of aggressive and it's making me uncomfortable. I think you should go."];
     botResponse.checkForAggressiveStatement();
     assert.include(aggressiveStatementResponses, botResponse.botMessageContent)
+  })
+
+  it('should only check user messages for one thing at a time', function() {
+    var botResponse = new BotResponse('FUCK?')
+    botResponse.generateResponseDependingOnUserMessage();
+    assert.include(swearResponses, botResponse.botMessageContent)
   })
 
 });
 
 context('should recognize Turing stuff and respond appropriately', function() {
   it('should recognize a message about Adam and respond appropriately', function() {
-    var botResponse = new BotResponse('Adam something something');
+    var botResponse = new BotResponse('adam something something');
     var nameResponses = ['Adam? Do you mean lord of the coffee-maker?', "I'll tell you one thing: Adam definitely gets to school early.", "Adam used to work at Vans."];
     botResponse.checkForMessageAboutAdam();
     assert.include(nameResponses, botResponse.botMessageContent)
@@ -71,14 +80,14 @@ context('should recognize Turing stuff and respond appropriately', function() {
   })
 
   it('should recognize a message about girl Casey and respond appropriately', function() {
-    var botResponse = new BotResponse('girl Casey something something');
+    var botResponse = new BotResponse('girlCasey something something');
     var nameResponses = ['Casey is a Gator and, thus, a good person.', 'Between you and me, I kinda feel like Casey might try and amend the SAB constitution to stay in power.', 'Casey and David are frenemies. I hate the word frenemies.'];
     botResponse.checkForMessageAboutGirlCasey();
     assert.include(nameResponses, botResponse.botMessageContent)
   })
 
   it('should recognize a message about boy Casey and respond appropriately', function() {
-    var botResponse = new BotResponse('boy Casey something something');
+    var botResponse = new BotResponse('boyCasey something something');
     var nameResponses = ['I hate having to differentiate between boy and girl Casey. I think they should joust or something to decide who gets to stay in the cohort.', "Boy Casey WILL ask a question about the thing Steve is about to tell us. Book it."];
     botResponse.checkForMessageAboutBoyCasey();
     assert.include(nameResponses, botResponse.botMessageContent)
@@ -135,7 +144,7 @@ context('should recognize Turing stuff and respond appropriately', function() {
 
   it('should recognize a message about Mike and respond appropriately', function() {
     var botResponse = new BotResponse('Mike something something');
-    var nameResponses = ["Mike sneaks up the funniest-person-in-class rankings every week.", "Mike loves Pai, Thailand, which means he's a big hippie."];
+    var nameResponses = ["Mike sneaks up the funniest-person-in-class rankings every week.", "Mike loves Pai, Thailand, which means he's a big hippie.", "Mike likes watching long-distance running events at the Olympics. Mike is weird."];
     botResponse.checkForMessageAboutMike();
     assert.include(nameResponses, botResponse.botMessageContent)
   })
