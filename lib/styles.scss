@@ -37,17 +37,19 @@ html {
   text-align: center;
 }
 
+
+// MESSAGE CONTAINER
+
 #messages-container {
   padding-bottom: 50px;
 }
 
-// MESSAGE CONTAINER
 .message {
-  height: 100px;
   color: $main-text-color;
+  height: 100px;
   margin: auto;
-  width: 90%;
   position: relative;
+  width: 90%;
 }
 
 .user-message {
@@ -61,52 +63,49 @@ html {
 .user-icon {
   background: $icon-person;
   background-color: $color-home-user;
+  background-position: center;
+  background-size: 20px;
   border: none;
   border-radius: 50%;
-  height: 0;
-  width: 0;
-  padding: 15px;
-  background-size: 20px;
-  background-position: center;
-
-  margin: 0;
-  left: -11px;
   bottom: -2px;
+  height: 0;
+  left: -11px;
+  margin: 0;
+  padding: 15px;
   position: absolute;
-
+  width: 0;
 }
 
 .bot-icon {
   background: $icon-bot;
   background-color: $color-user2;
+  background-position: center;
+  background-size: 20px;
   border: none;
   border-radius: 50%;
-  height: 0;
-  width: 0;
-  padding: 15px;
-  background-size: 20px;
-  background-position: center;
-
-  margin: 0;
-  left: -11px;
   bottom: -2px;
+  height: 0;
+  left: -11px;
+  margin: 0;
+  padding: 15px;
   position: absolute;
+  width: 0;
 }
 
 .user-message-text {
+  bottom: 0;
+  margin-bottom: 0px;
   padding-left: 30px;
   padding-right: 20px;
   position: absolute;
-  bottom: 0;
-  margin-bottom: 0px;
 }
 
 .bot-message-text {
+  bottom: 0;
+  margin-bottom: 0px;
   padding-left: 30px;
   padding-right: 20px;
   position: absolute;
-  bottom: 0;
-  margin-bottom: 0px;
 }
 
 .delete-button {
@@ -114,15 +113,14 @@ html {
   background-color: transparent;
   background-position: center;
   background-size: 20px;
-  width: 70px;
   border: none;
   height: 0px;
-  padding:10px;
-
   margin: 0;
+  padding:10px;
+  position: absolute;
   right: -25px;
   top: 5px;
-  position: absolute;
+  width: 70px;
 }
 
 .delete-button:hover {
@@ -133,63 +131,61 @@ html {
 }
 
 .user-user-name {
-  color: $color-home-user;
-  font-size: .5em;
-
-  margin: 0;
-  left: -8px;
   bottom: -14px;
+  color: $color-home-user;
+  left: -8px;
+  font-size: .5em;
+  margin: 0;
   position: absolute;
 }
 
 .bot-user-name {
+  bottom: -14px;
   color: $color-user2;
   font-size: .5em;
-
-  margin: 0;
   left: -5px;
-  bottom: -14px;
+  margin: 0;
   position: absolute;
 }
 
-//Input Container
+//INPUT CONTAINER
+
  #input-container {
   align-items: center;
-  justify-content: center;
   background-color: $input-field-background-color;
   display: flex;
   height: 10%;
-  width: 100%;
-  top: 90%;
+  justify-content: center;
   position: fixed;
+  top: 90%;
+  width: 100%;
 }
 
 #menu-options-container {
+  bottom: 10%;
   display: block;
   height: 40px;
-  width: 100%;
-  bottom: 10%;
   position: fixed;
+  width: 100%;
 }
 
 .show-menu-options {
-  background-color: transparent;
-  border: none;
   background-color: white;
   border: 1px solid white;
   border-top-right-radius:8px;
   border-top-left-radius:8px;
   height: 40px;
   margin-left: 90%;
-  width: 60px;
   opacity: .8;
+  width: 60px;
 }
 
 .menu-options {
-  position: relative;
   display: block;
-  height: 40px;
   display: none;
+  height: 40px;
+  margin-right: 5%;
+  position: relative;
 }
 
 .load-more {
@@ -197,17 +193,13 @@ html {
   background-color: transparent;
   background-position: center;
   background-size: 20px;
-  width: 20px;
   border: none;
   height: 0px;
+  margin: 0;
   padding:20px;
   position: absolute;
-  right: 0;
-
-
-  margin: 0;
   right: 40px;
-  position: absolute;
+  width: 20px;
 }
 
 .load-more:hover {
@@ -266,14 +258,14 @@ html {
   background: $icon-send-hover;
   background-color: transparent;
   background-position: center;
-  width: 50px;
-  height: 50px;
-  border: none;
   background-size: 30px;
+  border: none;
+  height: 50px;
+  width: 50px;
 }
 
 #send-button:disabled {
-  // opacity: 0.2;
+  opacity: 0.2;
 }
 
 #character-count {
