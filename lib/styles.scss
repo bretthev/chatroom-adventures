@@ -39,7 +39,7 @@ html {
 #chat-name {
   color: $color-main;
   font-family: $main-text;
-  padding-top: 40px;
+  padding-top: 5px;
   text-align: center;
 }
 
@@ -49,6 +49,10 @@ html {
 //   height: 90%;
 // }
 
+.article {
+  height: 5%;
+}
+
 .user-message {
   border-bottom: 2px solid $color-home-user;
   color: $main-text-color;
@@ -56,7 +60,7 @@ html {
   justify-content: flex-start;
 
   margin: auto;
-  margin-top: 30px;
+  // margin-top: 30px;
   width: 90%;
 }
 
@@ -67,23 +71,23 @@ html {
   // flex-direction: row;
   // justify-content: space-between;
   margin: auto;
-  margin-top: 30px;
+  // margin-top: 30px;
   width: 90%;
 }
 
 .user-message-text {
-  padding: 0;
+  margin-left: 20px;
+  // margin-top: 20px;
   margin-bottom: 0;
-  margin-left: 5px;
-  margin-top: 20px;
-  text-align: left;
+  margin-right: 5px;
+  max-width: 90%;
 }
 
 .bot-message-text {
   padding: 0;
   margin-bottom: 0;
   margin-left: 5px;
-  margin-top: 20px;
+  // margin-top: 20px;
   text-align: left;
   width: 100%;
 }
@@ -128,7 +132,7 @@ html {
   padding:10px;
   margin-bottom: 0;
 }
-
+//
 .delete-button:hover {
   background: $icon-x-hover;
   background-color: transparent;
@@ -156,16 +160,15 @@ html {
   text-align: left;
 }
 
-// INPUT CONTAINER
+//Input Container
+ #input-container {
 
-#input-container {
   align-items: center;
   background-color: $input-field-background-color;
   bottom: 0;
   display: flex;
   height: 10%;
   justify-content: space-around;
-  margin-top: 80%vh;
   width: 100%;
 }
 
