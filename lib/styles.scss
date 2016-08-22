@@ -37,6 +37,10 @@ html {
   text-align: center;
 }
 
+#messages-container {
+  padding-bottom: 50px;
+}
+
 // MESSAGE CONTAINER
 .message {
   height: 100px;
@@ -93,7 +97,8 @@ html {
   padding-left: 30px;
   padding-right: 20px;
   position: absolute;
-  margin-bottom: 0;
+  bottom: 0;
+  margin-bottom: 0px;
 }
 
 .bot-message-text {
@@ -101,6 +106,7 @@ html {
   padding-right: 20px;
   position: absolute;
   bottom: 0;
+  margin-bottom: 0px;
 }
 
 .delete-button {
@@ -149,44 +155,33 @@ html {
 //Input Container
  #input-container {
   align-items: center;
+  justify-content: center;
   background-color: $input-field-background-color;
-  bottom: 0;
   display: flex;
   height: 10%;
   width: 100%;
+  top: 90%;
+  position: fixed;
 }
 
 .show-menu-options {
-  background: $icon-load;
   background-color: transparent;
-  background-position: center;
-  background-size: 20px;
-  width: 20px;
   border: none;
-  height: 0px;
-  padding:20px;
-  // position: absolute;
-  // right: 0;
-
   background-color: white;
   border: 1px solid white;
   border-top-right-radius:8px;
   border-top-left-radius:8px;
-  color: grey;
   height: 40px;
-  margin: 0;
-  // margin-left: 10%;
-  // top: 0;
+  margin-left: 90%;
   width: 60px;
-  margin-bottom: 0px;
-  right: 40px;
-  position: absolute;
-  padding: 0;
+  opacity: .8;
 }
+
 .menu-options {
   position: relative;
   display: block;
   height: 40px;
+  display: none;
 }
 
 .load-more {
@@ -241,69 +236,6 @@ html {
 .delete-all:disabled {
   opacity: 0.2;
 }
-
-// .menu-options {
-//   background-color: pink;
-//   width: 200px;
-//   height: 40px;
-//   position: relative;
-// }
-
-// .load-more {
-//   position: fixed;
-//   right: 0;
-//   bottom: 80px;
-//   background: $icon-load;
-//   background-color: transparent;
-//   border-top-right-radius: 30%;
-//   border-top-left-radius: 30%;
-//   width: 50px;
-//   height: 50px;
-//   margin:0;
-//   border: none;
-//   margin-right: 10px;
-//   background-position: center;
-// }
-
-// .load-more:hover {
-//   position: fixed;
-//   right: 0;
-//   bottom: 80px;
-//   background: $icon-load-hover;
-//   background-color: transparent;
-//   border-top-right-radius: 30%;
-//   border-top-left-radius: 30%;
-//   width: $icon-size+30px;
-//   height: $icon-size+30px;
-//   margin:0;
-//   border: none;
-//   margin-right: 10px;
-//   background-position: center;
-// }
-
-
-// .delete-all {
-//   background: $icon-trash;
-//   background-color: transparent;
-//   background-color: transparent;
-//   background-position: center;
-//   width: 50px;
-//   height: 50px;
-//   border: none;
-//   background-size: 30px;
-// }
-//
-// .delete-all:hover {
-//   background: $icon-trash-hover;
-//   background-color: transparent;
-//   background-color: transparent;
-//   background-position: center;
-//   width: 50px;
-//   height: 50px;
-//   border: none;
-//   background-size: 30px;
-// }
-
 
 #message-input {
   border-radius: 10px;
