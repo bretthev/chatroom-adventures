@@ -22,8 +22,6 @@ $icon-x: url(/lib/images/icon-x-white.svg) no-repeat;
 $icon-person: url(/lib/images/icon-mustacge.png) no-repeat;
 $icon-bot: url(/lib/images/icon-robot-white.svg) no-repeat;
 
-$icon-size: 20px;
-
 html {
   align-content: center;
   background-color: $background-color;
@@ -37,11 +35,10 @@ html {
   text-align: center;
 }
 
-
 // MESSAGE CONTAINER
 
 #messages-container {
-  padding-bottom: 50px;
+  padding-bottom: 17%;
 }
 
 .message {
@@ -114,12 +111,12 @@ html {
   background-position: center;
   background-size: 20px;
   border: none;
+  bottom: 10%;
   height: 0px;
   margin: 0;
   padding:10px;
   position: absolute;
   right: -25px;
-  top: 5px;
   width: 70px;
 }
 
@@ -154,15 +151,15 @@ html {
   align-items: center;
   background-color: $input-field-background-color;
   display: flex;
-  height: 10%;
+  height: 15%;
   justify-content: center;
   position: fixed;
-  top: 90%;
+  top: 85%;
   width: 100%;
 }
 
 #menu-options-container {
-  bottom: 10%;
+  bottom: 15%;
   display: block;
   height: 40px;
   position: fixed;
