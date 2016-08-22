@@ -164,6 +164,14 @@ html {
   position: fixed;
 }
 
+#menu-options-container {
+  display: block;
+  height: 40px;
+  width: 100%;
+  bottom: 10%;
+  position: fixed;
+}
+
 .show-menu-options {
   background-color: transparent;
   border: none;
