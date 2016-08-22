@@ -8,23 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=true">
 </head>
 <body>
-  <header>
+  <header role='banner'>
     <h1 id="chat-name">CHATSKI Chatz</h1>
   </header>
   <section id="messages-container">
   </section>
   <section id="menu-options-container">
-    <button class="show-menu-options">menu</button>
     <aside class="menu-options">
-      <button class="load-more"></button>
-      <button class="delete-all"></button>
+      <button aria-labelledby="load" class="load-more"></button>
+      <button aria-labelledby="delete" class="delete-all"></button>
     </aside>
   </section>
   <section id="input-container">
     <input type="text" id="message-input">
     <aside>
-      <button id="send-button" disabled></button>
-      <p id="character-count">0</p>
+      <button aria-labelledby="send" id="send-button" disabled></button>
+      <p aria-labelledby="count" id="character-count">0</p>
     </aside>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

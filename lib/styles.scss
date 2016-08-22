@@ -150,7 +150,9 @@ html {
 
  #input-container {
   align-items: center;
-  background-color: $input-field-background-color;
+  background-color: black;
+  opacity: .8;
+  color: $input-field-background-color;
   display: flex;
   height: 15%;
   justify-content: center;
@@ -165,45 +167,47 @@ html {
   height: 40px;
   position: fixed;
   width: 100%;
-}
-
-.show-menu-options {
-  background-color: white;
-  border: 1px solid white;
-  border-top-right-radius:8px;
+  background-color: black;
+  border: 1px solid black;
   border-top-left-radius:8px;
-  height: 40px;
-  margin-left: 80vw;
+  border-bottom-left-radius:8px;
+  width: 40px;
+  height: 80px;
   opacity: .8;
-  width: 60px;
+  padding: 5px;
+  align-items: center;
+  right: 0;
+  top: 30px;
 }
 
 .menu-options {
   display: block;
-  display: none;
   height: 40px;
-  margin-right: 5%;
   position: relative;
 }
 
 .load-more {
   background: $icon-load;
   background-color: transparent;
-  background-position: center;
+  background-position: right;
   background-size: 20px;
   border: none;
   height: 0px;
-  margin: 0;
+  margin-top: 40px;
   padding:20px;
   position: absolute;
-  right: 40px;
-  width: 20px;
+  right: 0;
+  width: 200px;
+  color: white;
+  margin-right: 10px;
 }
-
+.load-more:hover:before {
+  content: 'load past messages';
+}
 .load-more:hover {
   background: $icon-load-hover;
   background-color: transparent;
-  background-position: center;
+  background-position: right;
   background-size: 20px;
 }
 
@@ -214,20 +218,26 @@ html {
 .delete-all {
   background: $icon-trash;
   background-color: transparent;
-  background-position: center;
+  background-position: right;
   background-size: 20px;
-  width: 20px;
+  width: 200px;
   border: none;
   height: 0px;
   padding:20px;
   position: absolute;
   right: 0;
+  color: white;
+  margin-right: 10px;
+}
+
+.delete-all:hover:before {
+  content: 'delete all messages';
 }
 
 .delete-all:hover {
   background: $icon-trash-hover;
   background-color: transparent;
-  background-position: center;
+  background-position: right;
   background-size: 20px;
 }
 
@@ -250,6 +260,11 @@ html {
   height: 50px;
   border: none;
   background-size: 30px;
+}
+
+#send-button:hover:after {
+  content: 'send message';
+  color: white;
 }
 
 #send-button:hover {
