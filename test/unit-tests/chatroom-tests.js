@@ -97,7 +97,6 @@ describe('Chatroom', function() {
     chatroom.updateMessagesProperty(message5);
     var message6 = new Message({ id: 6});
     chatroom.updateMessagesProperty(message6);
-    debugger;
     var nextMessages = chatroom.findPreviousMessages(4, 3);
     assert.deepEqual(nextMessages, [message3, message2, message1])
   })
