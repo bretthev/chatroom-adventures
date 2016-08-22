@@ -15,38 +15,38 @@ describe('BotResponse', function() {
 
 
   it('should be a function', function() {
-    assert.isFunction(BotResponse)
-  })
+    assert.isFunction(BotResponse);
+  });
 
   it('should be able to recognize swear words and respond appropriately', function() {
     var botResponse = new BotResponse('shit');
     botResponse.checkForSwearWords();
-    assert.include(swearResponses, botResponse.botMessageContent)
-  })
+    assert.include(swearResponses, botResponse.botMessageContent);
+  });
 
   it('should not update botResponse if user message doesnt swear', function() {
     var botResponse = new BotResponse('test');
     botResponse.checkForSwearWords();
-    assert.equal(botResponse.botMessageContent, 'I am a robot.')
-  })
+    assert.equal(botResponse.botMessageContent, 'I am a robot.');
+  });
 
   it('should be able to recognize questions and respond appropriately', function() {
     var botResponse = new BotResponse('Why you no like me?');
     botResponse.checkForQuestion();
-    assert.include(questionResponses, botResponse.botMessageContent)
-  })
+    assert.include(questionResponses, botResponse.botMessageContent);
+  });
 
   it('should be able to recognize exclamation points and caps lock and respond appropriately', function() {
     var botResponse = new BotResponse('I hate you!');
     botResponse.checkForAggressiveStatement();
-    assert.include(aggressiveStatementResponses, botResponse.botMessageContent)
-  })
+    assert.include(aggressiveStatementResponses, botResponse.botMessageContent);
+  });
 
   it('should only check user messages for one thing at a time', function() {
-    var botResponse = new BotResponse('FUCK?')
+    var botResponse = new BotResponse('FUCK?');
     botResponse.generateResponseDependingOnUserMessage();
-    assert.include(swearResponses, botResponse.botMessageContent)
-  })
+    assert.include(swearResponses, botResponse.botMessageContent);
+  });
 
 });
 
@@ -55,8 +55,8 @@ context('should recognize Turing stuff and respond appropriately', function() {
     var botResponse = new BotResponse('adam something something');
     var nameResponses = ['Adam? Do you mean lord of the coffee-maker?', "I'll tell you one thing: Adam definitely gets to school early.", "Adam used to work at Vans."];
     botResponse.checkForMessageAboutAdam();
-    assert.include(nameResponses, botResponse.botMessageContent)
-  })
+    assert.include(nameResponses, botResponse.botMessageContent);
+  });
 
   it('should recognize a message about Andy and respond appropriately', function() {
     var botResponse = new BotResponse('Andy something something');
