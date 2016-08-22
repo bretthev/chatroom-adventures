@@ -1,7 +1,6 @@
 const assert = require('assert');
 
 describe ('user messages editing and deleting', function() {
-
   it('user messages can be edited', function() {
     browser.url('/');
     var messageInput = browser.element('#message-input');
@@ -17,7 +16,5 @@ it('users should be able to delete their own messages', function() {
   browser.click('.delete-button');
   var messageArticle = browser.isExisting('.user-message');
   assert.equal(messageArticle, false);
-  })
-
-
+});
 });

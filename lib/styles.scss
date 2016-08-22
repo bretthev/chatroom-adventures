@@ -10,6 +10,9 @@ $input-field-background-color: #C9C9CE;
 $title-font: 'Roboto Condensed', sans-serif;
 $main-text: 'Ubuntu Condensed', sans-serif;
 
+$icon-bot: url(/lib/images/icon-robot-white.svg) no-repeat;
+$icon-person: url(/lib/images/icon-mustacge.png) no-repeat;
+
 $icon-load-hover: url(/lib/images/icon-load-red.svg) no-repeat;
 $icon-load: url(/lib/images/icon-load-white.svg) no-repeat;
 $icon-send-hover: url(/lib/images/icon-send-red.svg) no-repeat;
@@ -19,8 +22,6 @@ $icon-trash: url(/lib/images/icon-trash-white.svg) no-repeat;
 $icon-x-hover: url(/lib/images/icon-x-red.svg) no-repeat;
 $icon-x: url(/lib/images/icon-x-white.svg) no-repeat;
 
-$icon-person: url(/lib/images/icon-mustacge.png) no-repeat;
-$icon-bot: url(/lib/images/icon-robot-white.svg) no-repeat;
 
 html {
   align-content: center;
@@ -172,7 +173,7 @@ html {
   border-top-right-radius:8px;
   border-top-left-radius:8px;
   height: 40px;
-  margin-left: 90%;
+  margin-left: 80vw;
   opacity: .8;
   width: 60px;
 }
@@ -269,4 +270,10 @@ html {
   color: $color-user3;
   margin: auto;
   text-align: center;
+}
+
+@media (max-width: 700px) {
+  #messages-container {
+    padding-bottom: 30%;
+  }
 }

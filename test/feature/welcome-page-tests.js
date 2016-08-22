@@ -33,7 +33,3 @@ describe('welcome page', function(){
     assert.equal(messageInput.getAttribute('value'), '');
   });
 });
-
-
-
-//Messages should persist in local storage. They should be loaded when the application loads.
