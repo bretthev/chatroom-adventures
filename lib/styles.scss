@@ -1,51 +1,163 @@
+$background-color: #4A4A4A;
+$main-text-color: white;
+$color-main: #B8E986;
+$color-home-user: #50E3C2;
+$color-user2: #BD10E0;
+$color-user3: #FF6E6E;
+
+$input-field-background-color: #C9C9CE;
+
+$title-font: 'Roboto Condensed', sans-serif;
+$main-text: 'Ubuntu Condensed', sans-serif;
+
 html {
   align-content: center;
-  font-family: 'Roboto Condensed', sans-serif;
+  background-color: $background-color;
+  margin: 0;
 }
 
-main {
-  width: 416px;
-  height: 736px;
-  margin: auto;
-  background-color: #4A4A4A;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-h1 {
-  font-family: 'Ubuntu Condensed', sans-serif;
-  color: #B8E986;
-  text-align: center;
+#chat-name {
+  color: $color-main;
+  font-family: $main-text;
   padding-top: 40px;
+  text-align: center;
 }
 
 // MESSAGE CONTAINER
-#messages-container {
-  height: 550px;
-}
-
-.message {
-  height: 40px;
-  width: 90%;
-  margin: auto;
-}
 
 .user-message {
-  border-bottom: 3px solid #BD10E0;
-  color: white;
+  border-bottom: 2px solid $color-home-user;
+  color: $main-text-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 30px;
+  width: 90%;
 }
 
 .bot-message {
-  border-bottom: 3px solid #50E3C2;
+  border-bottom: 2px solid $color-user2;
+  color: $main-text-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 30px;
+  width: 90%;
 }
 
+.user-message-text {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  margin-right: 5px;
+  max-width: 90%;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+}
+
+.bot-message-text {
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.user-icon {
+  background-color: $color-home-user;
+  border-radius: 50%;
+  border: none;
+  height: 20px;
+  color: black;
+  color: $main-text-color;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 0;
+  width: 20px;
+}
+
+.bot-icon {
+  background-color: $color-user2;
+  border: none;
+  border-radius: 50%;
+  color: black;
+  color: $main-text-color;
+  height: 20px;
+  margin-bottom: 0;
+  text-align: center;
+  width: 20px;
+}
+
+.delete-button {
+  background: url(/lib/images/icon-delete-white.svg) no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-size: 15px;
+  border: none;
+  height: 15px;
+  left: 0;
+  margin-left: auto;
+  top: 0;
+  width: 15px;
+}
+
+.delete-button:hover {
+  background-color: $main-text-color;
+}
+
+.user-user-name {
+  color: $color-home-user;
+  font-size: .5em;
+  margin-top: 0;
+  text-align: right;
+  width: 95%;
+}
+
+.bot-user-name {
+  color: $color-user2;
+  font-size: .5em;
+  margin-left: 5%;
+  margin-top: 0;
+  width: 100%;
+  text-align: left;
+}
 
 // INPUT CONTAINER
 #input-container {
-  background-color: #C9C9CE;
-  height: 10%;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  background-color: $input-field-background-color;
+  bottom: 0;
+  display: flex;
+  height: 12%;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+
+}
+
+.load-more {
+  position: fixed;
+  right: 0;
+  bottom: 80px;
+  background: url(/lib/images/icon-load.svg) no-repeat;
+  background-color: transparent;
+  border-top-right-radius: 30%;
+  border-top-left-radius: 30%;
+  width: 50px;
+  height: 20px;
+  margin:0;
+  background-color: $input-field-background-color;
+  border: none;
+  margin-right: 10px;
+  background-position: center;
+}
+
+.load-more:disabled {
+  opacity: 0.2;
 }
 
 #message-input {
@@ -55,10 +167,18 @@ h1 {
 }
 
 #send-button {
+  background: url(/lib/images/icon-save.svg) no-repeat;
   background-color: transparent;
+  background-color: transparent;
+  background-position: center;
+  width: 50px;
+  height: 50px;
   border: none;
-  font-size: 1em;
-  color: blue;
+  background-size: 30px;
+}
+
+#send-button:disabled {
+  opacity: 0.2;
 }
 
 #character-count {
