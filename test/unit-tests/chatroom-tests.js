@@ -98,8 +98,8 @@ describe('Chatroom', function() {
     var message6 = new Message({ id: 6});
     chatroom.updateMessagesProperty(message6);
     var nextMessages = chatroom.findPreviousMessages(4, 3);
-    assert.deepEqual(nextMessages, [message3, message2, message1])
-  })
+    assert.deepEqual(nextMessages, [message3, message2, message1]);
+  });
 
   it('should be able to find the previous n messages after a message with a given id', function() {
     var chatroom = new Chatroom({});
@@ -116,7 +116,6 @@ describe('Chatroom', function() {
     var message6 = new Message({ id: 6});
     chatroom.updateMessagesProperty(message6);
     var nextMessages = chatroom.findLastMessages(3);
-    assert.deepEqual(nextMessages, [message6, message5, message4])
-  })
-
+    assert.deepEqual(nextMessages, [message6, message5, message4]);
+  });
 });

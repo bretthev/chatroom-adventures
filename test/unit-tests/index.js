@@ -4,4 +4,4 @@ require('./message-tests');
 
 require('./chatroom-tests');
 
-require('./bot-response-tests')
+require('./bot-response-tests');

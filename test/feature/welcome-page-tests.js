@@ -9,7 +9,7 @@ describe('welcome page', function(){
 
   it('send button should be disabled if input field is empty', function() {
     browser.url('/');
-    var messageInput =browser.element('#message-input');
+    var messageInput = browser.element('#message-input');
     messageInput.setValue('');
     var buttonStatus = browser.getAttribute('#send-button', 'disabled');
     assert.equal(buttonStatus, 'true');
@@ -33,7 +33,3 @@ describe('welcome page', function(){
     assert.equal(messageInput.getAttribute('value'), '');
   });
 });
-
-
-
-//Messages should persist in local storage. They should be loaded when the application loads.
